@@ -20,10 +20,9 @@
     <TextView
         android:id="@+id/textView_name"
         android:layout_width="345dp"
-        android:layout_height="39dp"
+        android:layout_height="98dp"
         android:layout_alignTop="@+id/imageView"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="64dp"
         android:layout_toRightOf="@+id/imageView"
         android:text="TextView"
         android:textSize="25dp"

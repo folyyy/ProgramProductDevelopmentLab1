@@ -16,18 +16,10 @@ import android.widget.Toast;
 
 public class SecondActivity extends AppCompatActivity {
 
-    // Getting an array of 1 million numbers and filling it with values from 1 to 1 million.
-    int[] NAMES = new int[1000000];
-    public void enternum() {
-        for (int i = 0; i < 1000000; i++) {
-            NAMES[i] = i + 1;
-        }
-    }
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_activity);
-        enternum();
         // Creating a ListView and then setting up an adapter to it.
         ListView listView = findViewById(R.id.listView);
         CustomAdapter customAdapter = new CustomAdapter();
@@ -47,7 +39,7 @@ public class SecondActivity extends AppCompatActivity {
     class CustomAdapter extends BaseAdapter {
         @Override
         public int getCount() {
-            return NAMES.length;
+            return 1000000;
         }
 
         @Override
@@ -68,11 +60,16 @@ public class SecondActivity extends AppCompatActivity {
             TextView textView_name = view.findViewById(R.id.textView_name);
             imageView.setImageResource(R.drawable.pet);
             // Even numbers getting grey background, odd numbers getting white background.
-            if (NAMES[i] % 2 == 0) {
-                textView_name.setBackgroundResource(R.color.colorGrey);
-            } else textView_name.setBackgroundResource(R.color.colorWhite);
+            if (i % 2 == 0) {
+//                textView_name.setBackgroundResource(R.color.colorWhite);
+                view.setBackgroundResource(R.color.colorWhite);
+            } else {
+//                textView_name.setBackgroundResource(R.color.colorGrey);
+                view.setBackgroundResource(R.color.colorGrey);
+            }
+
             // Class Num converts numbers into words.
-            textView_name.setText(Num.toString(NAMES[i]));
+            textView_name.setText(Num.toString(i+1));
             return view;
         }
     }
